@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            animation: fadeIn 1s ease-in-out;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        form {
+            margin-top: 20px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+            animation: slideIn 1.2s ease-out;
+        }
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            resize: none;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.7);
+            color: #333;
+        }
+        textarea::placeholder {
+            color: #777;
+            font-style: italic;
+        }
+        button {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        button:hover {
+            background-color: #e64a19;
+            transform: scale(1.1);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        h2 {
+            margin-top: 25px;
+            font-size: 2rem;
+            animation: zoomIn 0.8s ease-in-out;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+        }
+        p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            animation: zoomIn 0.8s ease-in-out;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        footer a {
+            color: #ff5722;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Sentiment Analysis Application</h1>
+    <form action="/predict" method="POST">
+        <textarea name="review_text" rows="5" cols="50" placeholder="Enter your review here..."></textarea><br>
+        <button type="submit">Analyze Sentiment</button>
+    </form>
+    {% if sentiment %}
+        <h2>Result: {{ sentiment }}</h2>
+        <p>Review: {{ review_text }}</p>
+    {% endif %}
+    <footer>
+        <h4> MADE BY CSW BATCH III</h4>
+    </footer>
+</body>
+</html>
