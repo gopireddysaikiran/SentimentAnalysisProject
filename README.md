@@ -126,8 +126,13 @@ We use a publicly available sentiment analysis dataset from Kaggle. You can use 
 💾 To use your dataset:
 
 Download the CSV file from Kaggle.
+
 Place it in your project folder and rename it as Reviews.csv.
+
 Make sure the dataset has at least two columns:
+
 Text (User review)
+
 Score or Sentiment (Label: Positive/Negative)
+
 📌 You can modify the preprocessing steps in app.py if needed.
